@@ -143,7 +143,7 @@ private func stringToAsset(_ string: String) throws -> (name: String, bundle: Bu
             _bundle = bundle
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             if match != nil, match != framework {
                 throw Expression.Error.message("Multiple matches for bundle with \(bundleDescription(identifier))")
             }
@@ -158,7 +158,7 @@ private func stringToAsset(_ string: String) throws -> (name: String, bundle: Bu
             continue
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             if match != nil, match != _bundle {
                 throw Expression.Error.message("Multiple matches for bundle with \(bundleDescription(identifier))")
             }
@@ -1202,7 +1202,7 @@ struct LayoutExpression {
     }
 
     init?(outletExpression: String, for node: LayoutNode) {
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Pre-validate expression so we can produce more useful errors
             if let parts = try? parseStringExpression(outletExpression) {
                 for part in parts {

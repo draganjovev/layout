@@ -165,7 +165,7 @@ public class RuntimeType: NSObject {
     }
 
     static func unavailable(_ reason: String? = nil) -> RuntimeType? {
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             let type = RuntimeType(String.self)
             type.availability = .unavailable(reason: reason)
             return type

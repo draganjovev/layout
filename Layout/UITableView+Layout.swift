@@ -100,7 +100,7 @@ extension UITableView: LayoutBacked {
             types[name] = .unavailable()
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "countStringInsignificantRowCount",
@@ -545,7 +545,7 @@ extension UITableViewHeaderFooterView: LayoutBacked {
         ] {
             types[name] = nil
         }
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             for name in [
                 "floating",
                 "maxTitleWidth",
@@ -656,7 +656,7 @@ extension UITableViewCell: LayoutBacked {
         types["lineBreakMode"] = nil
         types["textAlignment"] = nil
         types["textColor"] = nil
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             for name in [
                 "accessoryAction",
                 "bottomShadowColor",

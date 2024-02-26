@@ -48,7 +48,7 @@ public struct LayoutConsole {
     }
 }
 
-#if arch(i386) || arch(x86_64)
+#if targetEnvironment(simulator)
     private let reloadMessage = "Press ⌘R or Tap to Reload"
 #else
     private let reloadMessage = "Tap to Reload"

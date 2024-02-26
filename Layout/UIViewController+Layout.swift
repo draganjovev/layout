@@ -61,7 +61,7 @@ extension UIViewController: LayoutManaged {
             types["view.\(name)"] = type
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "SKUIStackedBarSplit",
@@ -135,7 +135,7 @@ extension UIViewController: LayoutManaged {
             types["videoQuality"] = .uiImagePickerControllerQualityType
             // TODO: validate media types
             // TODO: validate videoExportPreset
-            #if arch(i386) || arch(x86_64)
+            #if targetEnvironment(simulator)
                 // Private properties
                 for name in [
                     "allowsImageEditing",
@@ -358,7 +358,7 @@ extension UITabBar {
         types["itemWidth"] = .cgFloat
         types["items"] = .array(of: UITabBarItem.self)
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "backgroundEffects",
@@ -407,7 +407,7 @@ extension UITabBarController {
         // Read-only properties
         types["tabBar"] = nil
         // Private properties
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             for name in [
                 "moreChildViewControllers",
                 "showsEditButtonOnLeft",
@@ -462,7 +462,7 @@ extension UINavigationBar: TitleTextAttributes {
         types["prefersLargeTitles"] = .bool
         types["items"] = .array(of: UINavigationItem.self)
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "backgroundEffects",
@@ -528,7 +528,7 @@ extension UIToolbar {
         types["barStyle"] = .uiBarStyle
         types["barPosition"] = .uiBarPosition
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             types["backgroundEffects"] = nil
             types["centerTextButtons"] = nil
@@ -593,7 +593,7 @@ extension UINavigationController {
             types[name] = nil
         }
         // Private properties
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             for name in [
                 "allowUserInteractionDuringTransition",
                 "avoidMovingNavBarOffscreenBeforeUnhiding",
@@ -659,7 +659,7 @@ extension UIAlertController {
     open override class var expressionTypes: [String: RuntimeType] {
         var types = super.expressionTypes
         types["preferredStyle"] = .uiAlertControllerStyle
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "contentViewController",
@@ -689,7 +689,7 @@ extension UIActivityViewController {
     open override class var expressionTypes: [String: RuntimeType] {
         var types = super.expressionTypes
         types["excludedActivityTypes"] = .array(of: .uiActivityType)
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "activitiesByUUID",
@@ -737,7 +737,7 @@ extension UIActivityViewController {
 extension UIInputViewController {
     open override class var expressionTypes: [String: RuntimeType] {
         var types = super.expressionTypes
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private property
             types["hasDictation"] = nil
         #endif
@@ -752,7 +752,7 @@ extension UISplitViewController {
         types["viewControllers"] = .array(of: UIViewController.self)
         types["primaryEdge"] = .uiSplitViewControllerPrimaryEdge
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "gutterWidth",

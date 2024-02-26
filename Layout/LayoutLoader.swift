@@ -399,7 +399,7 @@ class LayoutLoader {
     }
 }
 
-#if arch(i386) || arch(x86_64)
+#if targetEnvironment(simulator)
 
     // MARK: Only applicable when running in the simulator
 

@@ -1392,7 +1392,7 @@ public class LayoutNode: NSObject {
             try self.bindActions()
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
 
             // Validate expressions
             for error in redundantExpressionErrors() {
@@ -1575,7 +1575,7 @@ public class LayoutNode: NSObject {
         self.viewControllerClass.map { $0.cachedExpressionTypes } ?? [:]
     }()
 
-    #if arch(i386) || arch(x86_64)
+    #if targetEnvironment(simulator)
 
         private lazy var deprecatedSymbols: [String: String] = {
             self._class.deprecatedSymbols
@@ -2880,7 +2880,7 @@ public class LayoutNode: NSObject {
             }
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
 
             let viewsAndOutlets = viewsAndOutlets ?? NSMutableSet()
 

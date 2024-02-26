@@ -28,7 +28,7 @@ class ReloadManager {
         }
         boxes.append(ObserverBox(observer: observer))
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
 
             if !UIResponder.handlerInstalled {
                 // Swizzle UIResponder.keyCommands so we can handle Cmd-R correctly
@@ -53,7 +53,7 @@ class ReloadManager {
     }
 }
 
-#if arch(i386) || arch(x86_64)
+#if targetEnvironment(simulator)
 
     private extension UIResponder {
         static var handlerInstalled = false

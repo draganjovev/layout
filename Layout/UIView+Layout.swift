@@ -104,7 +104,7 @@ extension UIView: LayoutManaged {
                 types[key] = nil
             }
         }
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             for name in [
                 "allowsBaselineOffsetApproximation",
                 "animationInfo",
@@ -371,7 +371,7 @@ extension UIImageView {
         var types = super.expressionTypes
         types["animationImages"] = .array(of: .uiImage)
         types["highlightedAnimationImages"] = .array(of: .uiImage)
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "adjustsImageWhenAncestorFocused",
@@ -441,7 +441,7 @@ extension UIControl {
             types[name] = .selector
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "adPrivacyData",
@@ -542,7 +542,7 @@ extension UIButton {
         }
         // Private properties
         types["lineBreakMode"] = nil
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             for name in [
                 "autosizesToFit",
                 "showPressFeedback",
@@ -627,7 +627,7 @@ extension UILabel {
         types["baselineAdjustment"] = .uiBaselineAdjustment
         types["enablesMarqueeWhenAncestorFocused"] = .bool
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "adjustsLetterSpacingToFitWidth",
@@ -688,7 +688,7 @@ extension UITextField {
             types[name] = type
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "animating",
@@ -793,7 +793,7 @@ extension UITextView {
             types[name] = type
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "becomesEditableWithGestures",
@@ -864,7 +864,7 @@ extension UISearchBar {
             types[name] = type
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "centerPlaceholder",
@@ -958,7 +958,7 @@ extension UISegmentedControl: TitleTextAttributes {
             types["\(segment)ContentPositionAdjustment.vertical"] = .cgFloat
         }
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "aloneContentPositionAdjustment",
@@ -1141,7 +1141,7 @@ extension UIActivityIndicatorView {
         types["isAnimating"] = .bool
         types["activityIndicatorViewStyle"] = .uiActivityIndicatorViewStyle
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "animationDuration",
@@ -1195,7 +1195,7 @@ extension UISwitch {
     open override class var expressionTypes: [String: RuntimeType] {
         var types = super.expressionTypes
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private
             types["visualElement"] = nil
         #endif
@@ -1261,7 +1261,7 @@ extension UIProgressView {
         var types = super.expressionTypes
         types["progressViewStyle"] = .uiProgressViewStyle
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private
             types["barStyle"] = nil
         #endif
@@ -1293,7 +1293,7 @@ extension UIInputView {
         // Read-only properties
         types["inputViewStyle"] = nil
         // Private properties
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             for name in [
                 "assertSizingWithPredictionBar",
                 "backgroundEdgeInsets",
@@ -1317,7 +1317,7 @@ extension UIDatePicker {
         var types = super.expressionTypes
         types["datePickerMode"] = .uiDatePickerMode
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "highlightsToday",
@@ -1345,7 +1345,7 @@ extension UIRefreshControl {
         var types = super.expressionTypes
         types["isRefreshing"] = .bool
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private property
             types["refreshControlState"] = nil
         #endif
@@ -1394,7 +1394,7 @@ extension UIVisualEffectView {
         for (key, type) in UIView.cachedExpressionTypes {
             types["contentView.\(key)"] = type
         }
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             types["backgroundEffects"] = nil
             types["contentEffects"] = nil

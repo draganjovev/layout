@@ -14,7 +14,7 @@ extension UIScrollView {
         types["minimumZoomScale"] = .cgFloat
         types["decelerationRate"] = .uiScrollView_DecelerationRate
 
-        #if arch(i386) || arch(x86_64)
+        #if targetEnvironment(simulator)
             // Private properties
             for name in [
                 "accessoryViews",
