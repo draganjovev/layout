@@ -61,12 +61,12 @@ class ReloadManager {
         @objc func layout_keyCommands() -> [UIKeyCommand]? {
             return (layout_keyCommands() ?? []) + [
                 UIKeyCommand(
-                    input: "r",
+                    input: "e",
                     modifierFlags: .command,
                     action: #selector(layout_reloadLayout)
                 ),
                 UIKeyCommand(
-                    input: "r",
+                    input: "e",
                     modifierFlags: [.command, .alternate],
                     action: #selector(layout_hardReloadLayout)
                 ),
