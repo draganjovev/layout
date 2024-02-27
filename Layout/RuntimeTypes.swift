@@ -886,11 +886,6 @@ public extension RuntimeType {
     @objc static var uiTableViewCellStyle: RuntimeType { return uiTableViewCell_CellStyle }
 
     // MARK: UITableView
-
-    @objc static let uiTableView_Style = RuntimeType([
-        "plain": .plain,
-        "grouped": .grouped,
-    ] as [String: UITableView.Style])
     @objc static let uiTableView_SeparatorInsetReference: RuntimeType = {
         if #available(iOS 11.0, *) {
             return RuntimeType([
@@ -906,7 +901,19 @@ public extension RuntimeType {
 
     // Deprecated
 
-    @objc static var uiTableViewStyle: RuntimeType { return uiTableView_Style }
+    @objc static var uiTableViewStyle: RuntimeType {
+        if #available(iOS 13.0, *) {
+            return RuntimeType([
+                "plain": .plain,
+                "grouped": .grouped,
+                "insetGrouped": .insetGrouped,
+            ] as [String: UITableView.Style])
+        }
+        return RuntimeType([
+            "plain": .plain,
+            "grouped": .grouped,
+        ] as [String: UITableView.Style])
+    }
     @objc static var uiTableViewSeparatorInsetReference: RuntimeType { return uiTableView_SeparatorInsetReference }
 
     // MARK: WebKit
